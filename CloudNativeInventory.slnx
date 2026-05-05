@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CloudNativeInventory.Api/CloudNativeInventory.Api.csproj" />
+  <Project Path="CloudNativeInventory.Tests/CloudNativeInventory.Tests.csproj" />
+</Solution>
