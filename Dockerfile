@@ -1,4 +1,4 @@
-# Build stage
+# - BUILD STAGE -
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
@@ -8,15 +8,17 @@ RUN dotnet restore CloudNativeInventory.Api/CloudNativeInventory.Api.csproj
 COPY CloudNativeInventory.Api/ CloudNativeInventory.Api/
 RUN dotnet publish CloudNativeInventory.Api/CloudNativeInventory.Api.csproj -c Release -o /app/publish
 
-# Runtime stage
+# - RUNTIME STAGE -
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 
+#USER app
 RUN adduser --disabled-password --gecos "" appuser
 USER appuser
 
 COPY --from=build /app/publish .
 
+# ENV ASPNETCORE_HTTP_PORTS=8080
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
 
