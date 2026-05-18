@@ -124,10 +124,9 @@ Verify that the secret is loaded securely from Key Vault and not from local conf
 
 Expected response when Key Vault is working correctly:
 
-    {
-      "status": "Secured",
-      "message": "Hemlighet laddades framgångsrikt via säker konfiguration."
-    }
+    status  message
+    ------  -------
+    Secured Hemlighet laddades framgångsrikt via söker konfiguration.
 
 *If it returns HTTP 500 with status Unsecured, the secret is not being loaded from Key Vault. Check that the Managed Identity has the Key Vault Secrets User role and that KeyVaultUrl is set correctly on the Container App.*
 
