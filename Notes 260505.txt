@@ -1,0 +1,19 @@
+Veckans uppdrag: Bootcamp K5U1
+
+Q: Vad gör API:t? 
+A: Detta är ett API för ett lagersystem som hanterar produkter i en in-memory databas.
+
+Q: Vilken endpoint finns?
+A: "GET /api/inventory" Returnerar en lista med produkter.
+
+Q: Varför ska detta inte ligga i repo i produktion? (1–2 punkter)
+A: - Hårdkodad nyckel i "appsettings.json" kommer att vara synlig när den hanteras av Git och blir synlig för alla med åtkomst till repot.
+   - Om nyckeln läcker kan utomstående anropa det externa systemet, vilket innebär att den kan inte återkallas utan att byta ut nyckeln överallt.
+
+
+Mini-plan för nästa tillfälle
+
+- CI: GitHub Actions workflow som kör "dotnet restore", "dotnet build" och "dotnet test" vid push.
+- Azure: Skapa "Resource Group" -> Azure Container Registry -> Azure Container Apps.
+- Key Vault: Skapa Key Vault, lägg till "VendorApiKey" som en secret, aktivera "Managed Identity" på container-appen, ge den "Key Vault Secrets User"-role, avkommentera Key Vault-blocket i Program.cs.
+
