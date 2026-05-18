@@ -134,10 +134,11 @@ Expected response when Key Vault is working correctly:
 
 ## 4. Architecture Decision Record
 
-See *docs/ADR-001-azure-hosting.md* for full documentation of decisions made, including:
+See [docs/ADR-001-azure-hosting.md](docs/ADR-001-azure-hosting.md) for full documentation of decisions made, including:
 - Why Azure Container Apps was chosen over App Service
 - Why Azure Container Registry was used for image storage
 - How the CI/CD pipeline is designed and why tests act as a deployment gate
 - How Managed Identity and RBAC replace hardcoded credentials
 - How secrets are managed so no sensitive values appear in code or Git history
 - Why the container runs as a non-root user and what the multi-stage build achieves
+- How monitoring is configured and how to debug issues
